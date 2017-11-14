@@ -33,6 +33,9 @@ class ValidacioensTest(unittest.TestCase):
     def testModoDeJuegoTuplaConModoDeJuegoValidoDeberiaSerUnModoInvalido(self):
         self.assertFalse(validaciones.modoJuegoValido(("1",)))
 
+    def testModoDeJuegoUnoConComillasSimplesDeberiaSerUnModoValido(self):
+        self.assertTrue(validaciones.modoJuegoValido('1'))
+
     def testModoDeJuegoDiccionarioConModoDeJuegoValidoDeberiaSerUnModoInvalido(self):
         self.assertFalse(validaciones.modoJuegoValido({"modoJuego":"1"}))
 
