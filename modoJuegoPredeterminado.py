@@ -8,8 +8,7 @@ def modoJuegoPredeterminado():
         print("Nivel {}".format(numeroNivel))
 
         mapaNivel = niveles.mapaNivelPredeterminado(numeroNivel)
-
-
+        mapaNivel = transformaMapa.transformadorDeMapa(mapaNivel)
         for linea in mapaNivel:
             print(linea)
 
