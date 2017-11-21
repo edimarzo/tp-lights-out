@@ -1,6 +1,16 @@
+import niveles
 def modoJuegoPredeterminado():
-    print("Nivel l: ")
-    print
-    mapa1= []
+    print("Bienvenido al modo predeterminado")
 
-    print(mapa1)
+    for numeroNivel in range (1,6):
+
+        print("Nivel {}".format(numeroNivel))
+        mapaNivel = niveles.mapaNivelPredeterminado(numeroNivel)
+
+        for linea in mapaNivel:
+            print(linea)
+
+        casilleroSeleccionado = input("Ingrese coordenada de casillero seleccionado")
+
+
+modoJuegoPredeterminado()
