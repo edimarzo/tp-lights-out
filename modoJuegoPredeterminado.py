@@ -1,5 +1,6 @@
 import niveles
 import transformaMapa
+import casillero
 def modoJuegoPredeterminado():
     print("Bienvenido al modo predeterminado")
 
@@ -8,11 +9,12 @@ def modoJuegoPredeterminado():
         print("Nivel {}".format(numeroNivel))
 
         mapaNivel = niveles.mapaNivelPredeterminado(numeroNivel)
-        mapaNivel = transformaMapa.transformadorDeMapa(mapaNivel)
-        for linea in mapaNivel:
+        cuadricula = transformaMapa.transformadorDeMapa(mapaNivel)
+
+        for linea in cuadricula:
             print(linea)
 
-        casilleroSeleccionado = input("Ingrese coordenada de casillero seleccionado")
+        casillero.seleccionCasillero()
 
 
 modoJuegoPredeterminado()

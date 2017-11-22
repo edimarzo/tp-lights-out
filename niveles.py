@@ -31,4 +31,4 @@ def mapaNivelPredeterminado(nivel):
           ["o", "o", ".", ".", "."]]]
     return mapas[int(nivel)-1]
 
-print(mapaNivelPredeterminado(1))
+print(mapaNivelPredeterminado(2))

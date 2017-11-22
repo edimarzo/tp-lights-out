@@ -19,22 +19,9 @@ def transformadorDeMapa(mapa):
         mapaTransformado.append(nuevalinea)
 
 
-    print(mapaTransformado)
+    return(mapaTransformado)
 
 
 
 
-transformadorDeMapa([["o", "o", ".", "o", "o"],
-          ["o", ".", "o", ".", "o"],
-          [".", "o", "o", "o", "."],
-          ["o", ".", "o", ".", "o"],
-          ["o", "o", ".", "o", "o"]])
-
-"""if nivel == 1:
-    mapa = ([["  |ABCDE"],
-             ["1 |oo.oo"],
-             ["2 |o.o.o"],
-             ["3 |.ooo."],
-             ["4 |o.o.o"],
-             ["5 |oo.oo"]])
-"""
+print(transformadorDeMapa([['.', 'o', '.', 'o', '.'], ['o', 'o', '.', 'o', 'o'], ['.', 'o', '.', 'o', '.'], ['o', '.', 'o', '.', 'o'], ['o', '.', 'o', '.', 'o']]))
