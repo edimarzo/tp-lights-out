@@ -1,4 +1,12 @@
 import string
+def displayMapa(mapaNivel):
+    """Recibe mapa como lista de listas.
+    Devuelve el mapa transformado para la visualización del usuario"""
+
+    mapaTransformado = transformadorDeMapa(mapaNivel)
+    for linea in mapaTransformado:
+        print(linea)
+
 def transformadorDeMapa(mapa):
     """Recibe un mapa como lista de listas y devuelve un mapa con forma de cuadrícula, creado a través de una lista de cadena de caracteres"""
 
@@ -18,10 +26,4 @@ def transformadorDeMapa(mapa):
         nuevalinea = "{} |".format(contador) + nuevalinea
         mapaTransformado.append(nuevalinea)
 
-    print(len(mapaTransformado))
     return(mapaTransformado)
-
-
-
-
-print(transformadorDeMapa([['.', 'o', '.', 'o', '.'], ['o', 'o', '.', 'o', 'o'], ['.', 'o', '.', 'o', '.'], ['o', '.', 'o', '.', 'o'], ['o', '.', 'o', '.', 'o']]))

@@ -1,22 +1,25 @@
-def prueba():
-    mapa = ['  |ABCDE', '1 |oo.oo', '2 |o.o.o', '3 |.ooo.', '4 |o.o.o', '5 |oo.oo']
-    coordenada = seleccionCasillero()
+def seleccionCasillero(mapa):
+    """Recibe mapa transformado en cuadrícula para visualización de usuario y consulta coordenada al usuario.
+    Devuelve la coordenada verificada (tanto si existe en la cuadrícula o si los datos ingresados son correctos) como tupla para su posterior utilización."""
+    #mapa = ['  |ABCDE', '1 |oo.oo', '2 |o.o.o', '3 |.ooo.', '4 |o.o.o', '5 |oo.oo']
+    coordenada = ingresoCasillero()
     a = coordenadaCheck(coordenada,mapa)
     while a != "Coordenada Ok":
         print(a)
-        coordenada = seleccionCasillero()
+        coordenada = ingresoCasillero()
         a == coordenadaCheck(coordenada,mapa)
         if a != "Coordenada Ok":
             break
         else:
             continue
-    print(coordenada)
+    return coordenada
 
-def seleccionCasillero():
+def ingresoCasillero():
     """Recibe la coordenada del usuario devuelve una tupla con las coordenadas"""
     coordenada = input("Seleccione casillero: ")
     tuplaCoordenada = (coordenada[0],coordenada[1:])
     return tuplaCoordenada
+
 
 def coordenadaCheck(coordenada,mapa):
     """Recibe la tupla de coordenadas con el mapa y verifica que la posición existe. Devuelve mensaje si válido o si es error"""
@@ -62,7 +65,6 @@ def filaCheck(y,mapa):
         return False
 
 
-prueba()
 
 """def transformadorCoordenadas(a):
     x , y = a

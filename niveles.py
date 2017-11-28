@@ -1,34 +1,40 @@
-def mapaNivelPredeterminado(nivel):
-    """Ingresa entero con número de nivel, devuelve mapa correspondiente a nivel"""
-    mapas = [[["o", "o", ".", "o", "o"],
+mapas = [[["o", "o", ".", "o", "o"],
           ["o", ".", "o", ".", "o"],
           [".", "o", "o", "o", "."],
           ["o", ".", "o", ".", "o"],
           ["o", "o", ".", "o", "o"]],
 
-             [[".", "o", ".", "o", "."],
+         [[".", "o", ".", "o", "."],
           ["o", "o", ".", "o", "o"],
           [".", "o", ".", "o", "."],
           ["o", ".", "o", ".", "o"],
           ["o", ".", "o", ".", "o"]],
 
-             [["o", ".", ".", ".", "o"],
+         [["o", ".", ".", ".", "o"],
           ["o", "o", ".", "o", "o"],
           [".", ".", "o", ".", "."],
           ["o", ".", "o", ".", "."],
           ["o", ".", "o", "o", "."]],
 
-             [["o", "o", ".", "o", "o"],
+         [["o", "o", ".", "o", "o"],
           [".", ".", ".", ".", "."],
           ["o", "o", ".", "o", "o"],
           [".", ".", ".", ".", "o"],
           ["o", "o", ".", ".", "."]],
 
-             [[".", ".", ".", "o", "o"],
+         [[".", ".", ".", "o", "o"],
           [".", ".", ".", "o", "o"],
           [".", ".", ".", ".", "."],
           ["o", "o", ".", ".", "."],
           ["o", "o", ".", ".", "."]]]
-    return mapas[int(nivel)-1]
 
-print(mapaNivelPredeterminado(2))
+
+def cantidadDeNivelesPredeterminado():
+    global mapas
+    return len(mapas)
+
+
+def mapaNivelPredeterminado(nivel):
+    """Ingresa entero con número de nivel, devuelve mapa correspondiente a nivel"""
+    global mapas
+    return mapas[int(nivel)-1]
