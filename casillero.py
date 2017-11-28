@@ -2,15 +2,24 @@ def prueba():
     mapa = ['  |ABCDE', '1 |oo.oo', '2 |o.o.o', '3 |.ooo.', '4 |o.o.o', '5 |oo.oo']
     coordenada = seleccionCasillero()
     a = coordenadaCheck(coordenada,mapa)
-    print(a)
-
+    while a != "Coordenada Ok":
+        print(a)
+        coordenada = seleccionCasillero()
+        a == coordenadaCheck(coordenada,mapa)
+        if a != "Coordenada Ok":
+            break
+        else:
+            continue
+    print(coordenada)
 
 def seleccionCasillero():
-    coordenada = input("Seleccione casillero")
+    """Recibe la coordenada del usuario devuelve una tupla con las coordenadas"""
+    coordenada = input("Seleccione casillero: ")
     tuplaCoordenada = (coordenada[0],coordenada[1:])
     return tuplaCoordenada
 
 def coordenadaCheck(coordenada,mapa):
+    """Recibe la tupla de coordenadas con el mapa y verifica que la posición existe. Devuelve mensaje si válido o si es error"""
     x,y = coordenada
     resultadox = columnaCheck(x,mapa)
     resultadoy = filaCheck(y,mapa)
@@ -28,28 +37,29 @@ def coordenadaCheck(coordenada,mapa):
 def columnaCheck(x,mapa):
     """ Ingresa mapa y valor de columna seleccionado por el usuario. Devuelve el valor verificado o error."""
 
-    x = x.upper()
-    if x in mapa[0]:
-        return True
-    else:
+    if type(x)!= str or x == "" or x == " ":
         return False
-
-def filaCheck(y,mapa):
-
-    ctdadFilas = len (mapa)
-    filasMapa = []
-
-    if int(y) > ctdadFilas:
-        return False
-
     else:
-        for x in range (1,ctdadFilas):
-            filasMapa.append(mapa[x][0])
-
-        if y in filasMapa:
+        x = x.upper()
+        if x in mapa[0]:
             return True
         else:
             return False
+
+def filaCheck(y,mapa):
+    """Recibe valor de fila seleccionado por el usuario. Devuelve True si valor existe o False en caso contrario"""
+
+    ctdadFilas = len(mapa)
+    ctdadFilas = int(ctdadFilas)
+    y = int(y)
+    valoresFilas = []
+
+    for valor in range (1,ctdadFilas):
+        valoresFilas.append(valor)
+    if y in valoresFilas:
+        return True
+    else:
+        return False
 
 
 prueba()

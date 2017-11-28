@@ -18,7 +18,7 @@ def transformadorDeMapa(mapa):
         nuevalinea = "{} |".format(contador) + nuevalinea
         mapaTransformado.append(nuevalinea)
 
-
+    print(len(mapaTransformado))
     return(mapaTransformado)
 
 
