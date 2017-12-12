@@ -27,7 +27,10 @@ def modoJuegoAleatorio():
             coordenada = casillero.seleccionCasillero(mapaNivelParaVisualizacion)
 
             if coordenada == "":
+
+                print("Reiniciar el tablero fueron {} puntos en contra".format(niveles.puntaje(mapaNivel,contador)))
                 puntaje = puntaje + niveles.puntaje(mapaNivel,contador)
+                print("Tu puntaje total es: {} puntos".format(puntaje))
 
                 contador = 0
                 mapaNivel = niveles.mapaAleatorio()
@@ -48,16 +51,17 @@ def modoJuegoAleatorio():
 
             if mapaNivel == niveles.mapaAleatorioGanado(len(mapaNivel)):
                 print("Felicitaciones ganaste el nivel {}!".format(numeroNivel))
-                print ("")
-                print("Tu puntaje es: {}".format(puntaje))
+                print("")
                 puntaje = puntaje + niveles.puntaje(mapaNivel, contador)
+                print("Tu puntaje en este nivel fue de +500 y tu puntaje total es: {}".format(puntaje))
 
                 break
-            elif contador == len(mapaNivel)*3:
-                print ("Te quedaste sin movimientos!")
-                print("")
-                print("Tu puntaje es: {}".format(puntaje))
+            elif contador == len(mapaNivel) * 3:
                 puntaje = puntaje + niveles.puntaje(mapaNivel, contador)
+                print("Te quedaste sin movimientos!")
+                print("")
+                print("Tu puntaje en este nivel fue de -300 y tu puntaje total es: {}".format(puntaje))
+
                 break
         if coordenada == "s":
             break
