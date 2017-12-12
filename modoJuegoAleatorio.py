@@ -41,7 +41,7 @@ def modoJuegoAleatorio():
                 accion.muestraMapa(mapaNivelParaVisualizacion)
 
                 continue
-            if coordenada == "s":
+            elif coordenada == "s":
                 break
 
             mapaNivel = transformaMapa.transformaMapa(coordenada, mapaNivel)

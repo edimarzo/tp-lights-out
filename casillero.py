@@ -20,7 +20,7 @@ def ingresoCasillero():
     coordenada = input("Seleccione casillero (ingrese vacío para reiniciar el nivel o s para volver): ")
     if coordenada == "":
         return ""
-    elif coordenada == "S" or "s":
+    elif coordenada == "S" or coordenada == "s":
         return "s"
     else:
         tuplaCoordenada = (coordenada[0],coordenada[1:])
