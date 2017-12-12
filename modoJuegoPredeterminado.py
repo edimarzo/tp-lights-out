@@ -82,6 +82,9 @@ def modoJuegoPredeterminado():
 
                 continue
 
+            elif coordenada == "s":
+                break
+
             mapaNivel = transformaMapa.transformaMapa(coordenada, mapaNivel)
             mapaNivelParaVisualizacion = transformaMapa.transformadorDeMapa(mapaNivel)
 
@@ -101,5 +104,5 @@ def modoJuegoPredeterminado():
                 puntaje = puntaje + niveles.puntaje(mapaNivel, contador)
 
                 break
-
-
+        if coordenada == "s":
+            break
