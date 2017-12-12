@@ -16,10 +16,12 @@ def seleccionCasillero(mapa):
     return coordenada
 
 def ingresoCasillero():
-    """Recibe la coordenada del usuario devuelve una tupla con las coordenadas"""
-    coordenada = input("Seleccione casillero (ingrese vacío para reiniciar el nivel): ")
+    """Recibe la coordenada del usuario devuelve una tupla con las coordenadas o valores para reiniciar o salir del juego"""
+    coordenada = input("Seleccione casillero (ingrese vacío para reiniciar el nivel o s para volver): ")
     if coordenada == "":
         return ""
+    elif coordenada == "S" or "s":
+        return "s"
     else:
         tuplaCoordenada = (coordenada[0],coordenada[1:])
         return tuplaCoordenada
@@ -27,7 +29,7 @@ def ingresoCasillero():
 
 def coordenadaCheck(coordenada,mapa):
     """Recibe la tupla de coordenadas con el mapa y verifica que la posición existe. Devuelve mensaje si válido o si es error"""
-    if coordenada == "":
+    if coordenada == "" or coordenada == "S" or coordenada == "s":
         return True
     else:
         x,y = coordenada
@@ -71,6 +73,40 @@ def filaCheck(y,mapa):
     else:
         return False
 
+def tamañoTablero():
+    """Pregunta al usuario tamaño de tablero. Chequea el valor ingresado y, si es válido, devuelve valor en enteros"""
+
+    print("")
+    print("En el modo aleatorio puede seleccionar el tamaño de la cuadrícula")
+    print("Sólo podrán ser valores enteros entre 5 y 10")
+    print("")
+
+    while True:
+        tamañoTablero = tamañoTableroCheck()
+        if tamañoTablero <= 10 and tamañoTablero >= 5:
+            return tamañoTablero
+
+        print("")
+        print("El valor ingresado es incorrecto")
+        print("Recuerde, debe ser un entero entre 5 y 10.")
+
+def tamañoTableroCheck():
+    """Solicita al usuario el ingreso de valor.
+    Devuelve entero si fue ingresado un entero y error en caso contrario"""
+
+    while True:
+
+        tamañoTablero = input("Ingrese tamaño de mapa: ")
+
+        try:
+            return int(tamañoTablero)
+
+        except ValueError:
+            print("El valor ingresado es incorrecto")
+            print("Recuerde, debe ser un entero entre 5 y 10.")
+        except TypeError:
+            print("El valor ingresado es incorrecto")
+            print("Recuerde, debe ser un entero entre 5 y 10.")
 
 #seleccionCasillero(['  |ABCDE', '1 |oo.oo', '2 |o.o.o', '3 |.ooo.', '4 |o.o.o', '5 |oo.oo'])
 
