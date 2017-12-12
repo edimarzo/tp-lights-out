@@ -3,38 +3,45 @@ def seleccionCasillero(mapa):
     Devuelve la coordenada verificada (tanto si existe en la cuadrícula o si los datos ingresados son correctos) como tupla para su posterior utilización."""
     #mapa = ['  |ABCDE', '1 |oo.oo', '2 |o.o.o', '3 |.ooo.', '4 |o.o.o', '5 |oo.oo']
     coordenada = ingresoCasillero()
-    a = coordenadaCheck(coordenada,mapa)
-    while a != "Coordenada Ok":
-        print(a)
+    a = coordenadaCheck(coordenada, mapa)
+    #print(a)
+    while a != True:
         coordenada = ingresoCasillero()
-        a == coordenadaCheck(coordenada,mapa)
-        if a != "Coordenada Ok":
-            break
+        nuevaCoordenada = coordenadaCheck(coordenada, mapa)
+        if nuevaCoordenada == True:
+            return coordenada
         else:
+            print(nuevaCoordenada)
             continue
     return coordenada
 
 def ingresoCasillero():
     """Recibe la coordenada del usuario devuelve una tupla con las coordenadas"""
-    coordenada = input("Seleccione casillero: ")
-    tuplaCoordenada = (coordenada[0],coordenada[1:])
-    return tuplaCoordenada
+    coordenada = input("Seleccione casillero (ingrese vacío para reiniciar el nivel): ")
+    if coordenada == "":
+        return ""
+    else:
+        tuplaCoordenada = (coordenada[0],coordenada[1:])
+        return tuplaCoordenada
 
 
 def coordenadaCheck(coordenada,mapa):
     """Recibe la tupla de coordenadas con el mapa y verifica que la posición existe. Devuelve mensaje si válido o si es error"""
-    x,y = coordenada
-    resultadox = columnaCheck(x,mapa)
-    resultadoy = filaCheck(y,mapa)
-
-    if resultadox == False and resultadoy == False:
-        return "Ingrese correctamente las coordenadas de columna y fila"
-    elif resultadox == True and resultadoy == False:
-        return "Ingrese correctamente el valor de la fila"
-    elif resultadox == False and resultadoy == True:
-        return "Ingrese correctamente el valor de la columna"
+    if coordenada == "":
+        return True
     else:
-        return "Coordenada Ok"
+        x,y = coordenada
+        resultadox = columnaCheck(x,mapa)
+        resultadoy = filaCheck(y,mapa)
+
+        if resultadox == False and resultadoy == False:
+            return "Ingrese correctamente las coordenadas de columna y fila"
+        elif resultadox == True and resultadoy == False:
+            return "Ingrese correctamente el valor de la fila"
+        elif resultadox == False and resultadoy == True:
+            return "Ingrese correctamente el valor de la columna"
+        else:
+            return True
 
 
 def columnaCheck(x,mapa):
@@ -54,24 +61,16 @@ def filaCheck(y,mapa):
 
     ctdadFilas = len(mapa)
     ctdadFilas = int(ctdadFilas)
-    y = int(y)
+    #y = int(y)
     valoresFilas = []
 
     for valor in range (1,ctdadFilas):
-        valoresFilas.append(valor)
+        valoresFilas.append(str(valor))
     if y in valoresFilas:
         return True
     else:
         return False
 
 
-
-"""def transformadorCoordenadas(a):
-    x , y = a
-    x = x.lower()
-    columnas =["a","b","c","d","e","f","g","h","i","j"]
-    x = columnas.index(x)
-    return x,int(y)"""
-
-
+#seleccionCasillero(['  |ABCDE', '1 |oo.oo', '2 |o.o.o', '3 |.ooo.', '4 |o.o.o', '5 |oo.oo'])
 
