@@ -50,6 +50,8 @@ import accion
 
 
 def modoJuegoPredeterminado():
+    """Modulo Juego en modo Predeterminado"""
+
     print("Bienvenido al modo predeterminado")
 
     cantidadDeNiveles = niveles.cantidadDeNivelesPredeterminado()
@@ -76,6 +78,10 @@ def modoJuegoPredeterminado():
                 puntaje = puntaje + niveles.puntaje(mapaNivel, contador)
                 print("Tu puntaje total es: {} puntos".format(puntaje))
 
+                if puntaje < 0:
+                    print("Te quedaste sin puntos! Hasta la próxima!")
+                    print("")
+                    break
 
                 contador = 0
                 mapaNivel = niveles.mapaNivelPredeterminado(numeroNivel)
@@ -108,7 +114,17 @@ def modoJuegoPredeterminado():
                 print("")
                 print("Tu puntaje en este nivel fue de -300 y tu puntaje total es: {}".format(puntaje))
 
+                if puntaje < 0:
+                    print("Te quedaste sin puntos! Hasta la próxima!")
+                    print("")
+                    break
+
 
                 break
         if coordenada == "s":
             break
+
+        elif puntaje <0:
+            break
+
+    #print("Tu puntaje es: {}".format(puntaje))
