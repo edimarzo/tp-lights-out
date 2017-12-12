@@ -18,6 +18,9 @@ def seleccionCasillero(mapa):
 def ingresoCasillero():
     """Recibe la coordenada del usuario devuelve una tupla con las coordenadas o valores para reiniciar o salir del juego"""
     coordenada = input("Seleccione casillero (ingrese vacío para reiniciar el nivel o s para volver): ")
+    return validarCoordenada(coordenada)
+
+def validarCoordenada(coordenada):
     if coordenada == "":
         return ""
     elif coordenada == "S" or coordenada == "s":
@@ -25,7 +28,6 @@ def ingresoCasillero():
     else:
         tuplaCoordenada = (coordenada[0],coordenada[1:])
         return tuplaCoordenada
-
 
 def coordenadaCheck(coordenada,mapa):
     """Recibe la tupla de coordenadas con el mapa y verifica que la posición existe. Devuelve mensaje si válido o si es error"""
